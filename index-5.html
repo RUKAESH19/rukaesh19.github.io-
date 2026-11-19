@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0b0c">
+<meta name="description" content="Rukaesh AI is a student learning companion with study tools, revision notes, quizzes and progress tracking.">
+<meta name="robots" content="index,follow">
+<title>Rukaesh AI — Learn Beyond Limits</title>
+<style>
+:root{color-scheme:dark;--bg:#0b0b0c;--panel:#151516;--gold:#d7b56d;--gold2:#f1d99e;--muted:#aaa69c;--line:#3a3325;--green:#8ed6a5}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% 0%,#302719 0,#111112 34%,var(--bg) 70%);color:#f8f5ee;font-family:Inter,system-ui,Arial,sans-serif;min-height:100vh}
+header{position:sticky;top:0;z-index:5;background:#0b0b0cee;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.nav{max-width:1120px;margin:auto;padding:13px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font-weight:900;letter-spacing:2px;color:var(--gold2);font-size:19px;white-space:nowrap}.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:3px;margin-top:3px}
+nav{display:flex;gap:6px;flex-wrap:wrap}button,.navbtn{border:1px solid var(--line);background:#171716;color:#eee;border-radius:10px;padding:10px 12px;cursor:pointer;font:inherit;font-weight:650}button:hover,.navbtn:hover,.navbtn.active{border-color:var(--gold);color:var(--gold2);background:#282216}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
+main{max-width:1120px;margin:auto;padding:28px 20px 65px}.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:25px;align-items:center;padding:35px 0 40px}.eyebrow{color:var(--gold);font-size:11px;letter-spacing:2.5px;font-weight:800}.hero h1{font-size:clamp(40px,6vw,70px);line-height:1.02;margin:14px 0}.hero h1 span,.gold{color:var(--gold2)}.hero p{color:#c2beb5;line-height:1.7;max-width:570px}.orb{min-height:250px;border:1px solid #5c4829;border-radius:26px;background:radial-gradient(circle at 50% 45%,#6e5428 0,#302416 22%,#171513 60%);display:grid;place-items:center;box-shadow:0 20px 70px #0008}.orbicon{font-size:95px;filter:drop-shadow(0 0 22px #e2bb65)}.orbtext{color:var(--gold2);letter-spacing:3px;font-weight:800;font-size:11px;margin-top:-32px}
+.goldbtn{background:linear-gradient(120deg,#a77c32,#f0d89b);color:#16120a;border:0;padding:12px 17px;margin-top:10px}.goldbtn:hover{background:linear-gradient(120deg,#c4933e,#ffe6a9);color:#16120a}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:27px 0 13px}.sectionhead h2{margin:0;font-size:23px}.muted{color:var(--muted);font-size:13px;line-height:1.55}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin:15px 0 30px}.tile,.card{background:linear-gradient(145deg,#1a1a19,#111112);border:1px solid var(--line);border-radius:17px;padding:18px}.tile{cursor:pointer;transition:.2s}.tile:hover{transform:translateY(-3px);border-color:var(--gold)}.tile .ico{font-size:25px}.tile h3{margin:12px 0 5px;font-size:16px}.tile p{color:var(--muted);font-size:13px;line-height:1.5;margin:0}
+.panel{display:none}.panel.active{display:block}.card{margin-top:13px}.field{width:100%;background:#0d0d0e;border:1px solid #4b402c;border-radius:10px;padding:12px;color:#fff;font:inherit;margin:7px 0 13px}.field:focus{border-color:var(--gold)}label{font-size:12px;color:var(--gold2);font-weight:750;display:block}.answer{background:#211d15;border-left:3px solid var(--gold);padding:14px;border-radius:8px;line-height:1.65;margin-top:13px;white-space:pre-wrap}.notice{border:1px solid #66532f;background:#211d15;padding:12px 14px;border-radius:10px;margin:12px 0;color:#e7d8b7;font-size:13px;line-height:1.5}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat strong{display:block;font-size:28px;color:var(--gold2)}.stat span{color:var(--muted);font-size:11px;letter-spacing:.5px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.row>*{flex:1}.smallbtn{padding:8px 11px;font-size:12px}.noteitem{padding:13px;border:1px solid var(--line);border-radius:10px;margin-top:9px;background:#101011}.noteitem strong{color:var(--gold2)}.noteitem p{white-space:pre-wrap;color:#ddd;line-height:1.5}.quizoption{display:block;padding:10px;border:1px solid var(--line);border-radius:9px;margin:8px 0;cursor:pointer}.quizoption:hover{border-color:var(--gold)}.quizoption input{margin-right:8px}.progressbar{height:9px;border-radius:20px;background:#302b22;overflow:hidden;margin:10px 0}.progressbar span{display:block;height:100%;background:linear-gradient(90deg,#a77c32,#f1d99e);width:0}
+footer{text-align:center;color:#827d72;border-top:1px solid var(--line);padding:24px;font-size:12px}footer a{color:var(--gold2)}
+@media(max-width:780px){.hero{grid-template-columns:1fr;padding-top:20px}.orb{min-height:170px}.orbicon{font-size:65px}.grid{grid-template-columns:repeat(2,1fr)}.nav{align-items:flex-start;flex-direction:column}nav{width:100%}nav button{flex:1;padding:9px 6px;font-size:12px}.stats{grid-template-columns:1fr 1fr}.sectionhead{align-items:flex-start;flex-direction:column}}
+@media(max-width:420px){main{padding-left:14px;padding-right:14px}.grid{gap:8px}.tile,.card{padding:14px}.stats{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="nav"><div class="brand">RUKAESH AI<small>PREMIUM LEARNING</small></div>
+<nav aria-label="Main navigation">
+<button class="navbtn active" data-tab="home">Home</button><button class="navbtn" data-tab="tutor">AI Tutor</button><button class="navbtn" data-tab="notes">Study Notes</button><button class="navbtn" data-tab="quiz">Quiz Zone</button><button class="navbtn" data-tab="progress">Progress</button>
+</nav></div></header>
+<main>
+<section id="home" class="panel active">
+<div class="hero"><div><div class="eyebrow">YOUR PERSONAL STUDY COMPANION</div><h1>Learn beyond<br><span>limits.</span></h1><p>One learning space for guided explanations, revision notes, practice quizzes and your study progress. Built to make learning clearer, one topic at a time.</p><button class="goldbtn" onclick="showTab('tutor')">Start learning →</button></div><div class="orb" aria-label="Rukaesh AI learning emblem"><div class="orbicon">✦</div><div class="orbtext">THINK • LEARN • GROW</div></div></div>
+<div class="sectionhead"><h2>Your learning tools</h2><span class="muted">Choose where to begin</span></div>
+<div class="grid">
+<div class="tile" onclick="showTab('tutor')"><div class="ico">🤖</div><h3>AI Tutor</h3><p>Get a clear study guide for a question or topic.</p></div>
+<div class="tile" onclick="showTab('notes')"><div class="ico">📚</div><h3>Study Notes</h3><p>Create and keep revision notes on this device.</p></div>
+<div class="tile" onclick="showTab('quiz')"><div class="ico">🎯</div><h3>Quiz Zone</h3><p>Practise questions and check your answers.</p></div>
+<div class="tile" onclick="showTab('progress')"><div class="ico">📈</div><h3>Progress</h3><p>Track quiz results and notes you create.</p></div>
+</div>
+<div class="notice">Welcome to Rukaesh AI. Your notes and progress are saved locally in this browser on this device. They are not synced to an account.</div>
+</section>
+
+<section id="tutor" class="panel">
+<div class="sectionhead"><h2>AI <span class="gold">Tutor</span></h2><span class="muted">Guided study helper</span></div>
+<div class="card"><p class="muted">Choose a subject and enter a topic or question. This version creates a structured study guide; live AI answers need a secure server connection.</p>
+<label for="subject">SUBJECT</label><select id="subject" class="field"><option>Mathematics</option><option>Science</option><option>English</option><option>Bahasa Melayu</option><option>Tamil</option><option>Geography</option><option>History</option><option>Computer Science</option></select>
+<label for="question">YOUR QUESTION OR TOPIC</label><textarea id="question" class="field" rows="4" placeholder="Example: Explain fractions in a simple way..."></textarea>
+<button class="goldbtn" onclick="askTutor()">Create study guide</button><div id="tutorAnswer" aria-live="polite"></div>
+<div class="notice">Live AI is not connected yet. Never paste a private API key into this HTML file. A trusted adult should help set up hosting and a secure backend before enabling an AI service.</div></div>
+</section>
+
+<section id="notes" class="panel">
+<div class="sectionhead"><h2>Study <span class="gold">Notes</span></h2><span class="muted">Saved on this device</span></div>
+<div class="card"><label for="noteSubject">SUBJECT</label><input id="noteSubject" class="field" placeholder="e.g. Geography">
+<label for="topic">TOPIC</label><input id="topic" class="field" placeholder="e.g. Weather and climate">
+<label for="noteBody">YOUR NOTES</label><textarea id="noteBody" class="field" rows="5" placeholder="Write key facts, definitions and examples..."></textarea>
+<button class="goldbtn" onclick="saveNote()">Save note</button><div id="notesStatus" class="muted" aria-live="polite"></div></div>
+<div class="sectionhead"><h2>Your saved notes</h2><button class="smallbtn" onclick="clearNotes()">Clear all notes</button></div><div id="notesList"></div>
+</section>
+
+<section id="quiz" class="panel">
+<div class="sectionhead"><h2>Quiz <span class="gold">Zone</span></h2><span class="muted">Quick practice</span></div>
+<div class="card"><div class="row"><div><label for="quizSubject">CHOOSE A QUIZ</label><select id="quizSubject" class="field" onchange="loadQuestion()"><option value="math">Mathematics</option><option value="science">Science</option><option value="geography">Geography</option><option value="general">General Knowledge</option></select></div><div><label>QUESTION</label><div id="questionNumber" class="field" aria-live="polite">1</div></div></div>
+<h3 id="quizQuestion">What is 12 × 8?</h3><div id="options"></div><button class="goldbtn" onclick="checkQuiz()">Check answer</button> <button onclick="nextQuestion()">Next question →</button><div id="quizAnswer" aria-live="polite"></div></div>
+</section>
+
+<section id="progress" class="panel">
+<div class="sectionhead"><h2>Your <span class="gold">Progress</span></h2><span class="muted">This browser only</span></div>
+<div class="stats"><div class="card stat"><strong id="quizCount">0</strong><span>QUIZZES ANSWERED</span></div><div class="card stat"><strong id="correctCount">0</strong><span>CORRECT ANSWERS</span></div><div class="card stat"><strong id="notesCount">0</strong><span>NOTES SAVED</span></div></div>
+<div class="card"><strong>Quiz accuracy</strong><div class="progressbar"><span id="accuracyBar"></span></div><p id="accuracyText" class="muted">Answer a quiz question to begin tracking your accuracy.</p><button onclick="resetProgress()">Reset quiz progress</button></div>
+</section>
+</main>
+<footer>RUKAESH AI · LEARN BEYOND LIMITS · STUDENT EDITION<br><span>Learning tools prototype · Live AI, accounts and cloud sync are not enabled.</span></footer>
+<script>
+const quizBank={
+ math:[
+  {q:"What is 12 × 8?",o:["86","96","108","88"],a:1,e:"12 × 8 = 96."},
+  {q:"What is ¾ written as a decimal?",o:["0.25","0.5","0.75","1.25"],a:2,e:"¾ = 3 ÷ 4 = 0.75."},
+  {q:"What is the perimeter of a square with sides of 5 cm?",o:["10 cm","15 cm","20 cm","25 cm"],a:2,e:"A square has four equal sides: 4 × 5 = 20 cm."}
+ ],
+ science:[
+  {q:"Which part of a plant mainly absorbs water?",o:["Flower","Roots","Fruit","Leaves"],a:1,e:"Roots absorb water and minerals from the soil."},
+  {q:"What is the process by which plants make food using sunlight?",o:["Respiration","Evaporation","Photosynthesis","Condensation"],a:2,e:"Photosynthesis uses light energy to help plants make glucose."}
+ ],
+ geography:[
+  {q:"Which is the largest continent?",o:["Africa","Europe","Asia","Australia"],a:2,e:"Asia is the largest continent by area."},
+  {q:"What instrument is used to measure temperature?",o:["Barometer","Thermometer","Rain gauge","Wind vane"],a:1,e:"A thermometer measures temperature."}
+ ],
+ general:[
+  {q:"How many days are there in a leap year?",o:["364","365","366","367"],a:2,e:"A leap year has 366 days."},
+  {q:"Which planet is known as the Red Planet?",o:["Venus","Mars","Jupiter","Mercury"],a:1,e:"Mars is often called the Red Planet because of its reddish appearance."}
+ ]
+};
+let currentIndex=0,answered=false;
+const getStore=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key))??fallback}catch{return fallback}};
+const setStore=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value))}catch{}};
+let stats=getStore("rukaeshStats",{attempts:0,correct:0}),notes=getStore("rukaeshNotes",[]);
+function showTab(id){document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("active",p.id===id));document.querySelectorAll(".navbtn").forEach(b=>b.classList.toggle("active",b.dataset.tab===id));window.scrollTo({top:0,behavior:"smooth"});updateStats();if(id==="notes")renderNotes()}
+document.querySelectorAll(".navbtn").forEach(b=>b.addEventListener("click",()=>showTab(b.dataset.tab)));
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function askTutor(){const subject=document.getElementById("subject").value,question=document.getElementById("question").value.trim();if(!question){alert("Please enter a question or topic first.");return}document.getElementById("tutorAnswer").innerHTML=`<div class="answer"><strong>${escapeHtml(subject)} · Study guide</strong><br><br><strong>Topic:</strong> ${escapeHtml(question)}<br><br><strong>1. Understand the question</strong><br>Write down the key words and identify what you need to learn.<br><br><strong>2. Learn the main idea</strong><br>Find the definition, rule or central concept in your textbook or class notes.<br><br><strong>3. Make an example</strong><br>Write one example and explain each step in your own words.<br><br><strong>4. Check your understanding</strong><br>Try explaining the topic without looking at your notes.<br><br><strong>5. Revise</strong><br>List three important facts and ask your teacher about anything unclear.<br><br><em>This is a study framework, not a generated AI answer. Live AI needs a secure backend.</em></div>`}
+function saveNote(){const subject=document.getElementById("noteSubject").value.trim(),topic=document.getElementById("topic").value.trim(),body=document.getElementById("noteBody").value.trim();if(!subject||!topic||!body){alert("Please complete the subject, topic and notes.");return}notes.unshift({subject,topic,body,date:new Date().toLocaleDateString()});setStore("rukaeshNotes",notes);document.getElementById("noteBody").value="";document.getElementById("notesStatus").textContent="Note saved on this device.";renderNotes();updateStats()}
+function renderNotes(){const el=document.getElementById("notesList");if(!notes.length){el.innerHTML='<p class="muted">No notes saved yet. Create your first revision note above.</p>';return}el.innerHTML=notes.map((n,i)=>`<article class="noteitem"><strong>${escapeHtml(n.subject)} — ${escapeHtml(n.topic)}</strong><div class="muted">${escapeHtml(n.date)}</div><p>${escapeHtml(n.body)}</p><button class="smallbtn" onclick="deleteNote(${i})">Delete note</button></article>`).join("")}
+function deleteNote(i){notes.splice(i,1);setStore("rukaeshNotes",notes);renderNotes();updateStats()}
+function clearNotes(){if(!notes.length)return;if(confirm("Delete all saved notes from this browser?")){notes=[];setStore("rukaeshNotes",notes);renderNotes();updateStats()}}
+function currentQuestions(){return quizBank[document.getElementById("quizSubject").value]}
+function loadQuestion(){const qs=currentQuestions();currentIndex%=qs.length;answered=false;const q=qs[currentIndex];document.getElementById("questionNumber").textContent=`${currentIndex+1} / ${qs.length}`;document.getElementById("quizQuestion").textContent=q.q;document.getElementById("options").innerHTML=q.o.map((o,i)=>`<label class="quizoption"><input type="radio" name="quizOption" value="${i}"> ${escapeHtml(o)}</label>`).join("");document.getElementById("quizAnswer").textContent=""}
+function checkQuiz(){if(answered)return;const chosen=document.querySelector('input[name="quizOption"]:checked');if(!chosen){alert("Choose an answer first.");return}const q=currentQuestions()[currentIndex],isCorrect=Number(chosen.value)===q.a;stats.attempts++;if(isCorrect)stats.correct++;setStore("rukaeshStats",stats);answered=true;document.getElementById("quizAnswer").innerHTML=`<div class="answer">${isCorrect?"✓ Correct!":"Not quite."} ${escapeHtml(q.e)}</div>`;updateStats()}
+function nextQuestion(){const qs=currentQuestions();currentIndex=(currentIndex+1)%qs.length;loadQuestion()}
+function updateStats(){document.getElementById("quizCount").textContent=stats.attempts;document.getElementById("correctCount").textContent=stats.correct;document.getElementById("notesCount").textContent=notes.length;const pct=stats.attempts?Math.round(stats.correct/stats.attempts*100):0;document.getElementById("accuracyBar").style.width=pct+"%";document.getElementById("accuracyText").textContent=stats.attempts?`${pct}% correct (${stats.correct} out of ${stats.attempts} answers).`:"Answer a quiz question to begin tracking your accuracy."}
+function resetProgress(){if(confirm("Reset quiz progress on this browser?")){stats={attempts:0,correct:0};setStore("rukaeshStats",stats);updateStats()}}
+loadQuestion();renderNotes();updateStats();
+</script>
+</body></html>
